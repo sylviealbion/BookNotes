@@ -29,7 +29,7 @@ app.get("/view", async (req,res)=>{
 
 //go to add and entry page
 app.get("/add", async (req,res)=>{
-    res.render("addentry.ejs");
+    res.render("entry.ejs");
 });
 
 

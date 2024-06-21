@@ -1,0 +1,67 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <div class="container mt-5 mb-5 d-flex flex-column main-div">
+        <div class="pt-5 pb-5">
+            <h1 style="text-align: center;">ADD ENTRY</h1>
+        </div>
+        <hr>
+        <div class="container py-5">
+            <form>
+                <div class="row mb-2">
+                    <div class="col-2 justi">
+                        <label for="">Book: </label>
+                    </div>
+                    <div class="col-10">
+                        <input type="text" id="fname" name="" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-2 justi">
+                        <label for="rating">Rating: </label>
+                    </div>
+                    <div class="col-10">
+                        <!-- Hover color change is handled in star.js-->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <!-- this is where i store the rating using js-->
+                        <input type="hidden" name="rating" id="rating" value="0">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-2 justi">
+                        <label for="review">Review: </label>
+                    </div>
+                    <div class="col-10">
+                        <textarea type="text" id="review" name="review" class="form-control" rows="10"></textarea>
+                    </div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-2 justi">
+                        <label for="notes">Notes: </label>
+                    </div>
+                    <div class="col-10">
+                        <textarea type="text" id="notes" name="notes" class="form-control" rows="20"></textarea>
+                    </div>
+                </div>                     
+
+
+            </form>
+        </div>   
+
+    </div>
+    <script src="stars.js"></script>
+</body>
+<%- include("partials/footer.ejs") %>

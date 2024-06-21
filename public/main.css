@@ -32,3 +32,16 @@ pre{
 .bi-plus-circle-fill:hover{
     color: #EEEEEE;
 }
+.bi-star-fill{
+    color: #EEEEEE;
+}
+.selected{
+    color: #76ABAE;
+}
+.bi-star-fill:hover{
+    color: #76ABAE;
+}
+input[type="text"], textarea[type="text"]{
+    background-color: #EEEEEE;
+    border: #EEEEEE;
+}
