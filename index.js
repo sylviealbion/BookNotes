@@ -22,6 +22,10 @@ const db = new pg.Client({
 app.get("/", async (req,res)=>{
     res.render("index.ejs");
 });
+//chage view to /view/:id
+app.get("/view", async (req,res)=>{
+    res.render("notes.ejs");
+});
 
 //add new data
 app.post("/", async (req,res)=>{

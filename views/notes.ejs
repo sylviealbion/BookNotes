@@ -1,0 +1,73 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <div class="container mt-5 mb-5 d-flex flex-column main-div">
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-4">
+                    <img src="https://covers.openlibrary.org/b/isbn/0806541229-L.jpg" class="rounded book-cover">
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="/gotoamazon">View book in Amazon</a>
+                        </div>
+                        <div class="col-6">
+                            <a href="/">View all books ive read</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <h2>TITLE OF BOOk adasdasdasdasdasddasdasdasdad</h2>
+                    <p>by <em>authorsdasdasdasd</em></p>
+                    <p>Date read | my rating</p>
+                    <pre>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque egestas, magna rhoncus imperdiet facilisis, orci augue pretium quam, pharetra tempus ipsum ante in sem. Sed a volutpat est. Aenean eros nibh, sodales sed leo vel, ultrices gravida lectus. Praesent luctus diam a iaculis suscipit. Nullam vulputate quis lectus ac egestas. Phasellus placerat aliquet nunc, eu facilisis est facilisis et. Etiam erat orci, eleifend a egestas quis, molestie vel enim. Cras eget purus placerat, cursus lorem et, euismod mauris. Praesent sit amet nisl dignissim, ornare metus ac, egestas nisl.
+
+        Maecenas fringilla purus vitae gravida scelerisque. Praesent elementum facilisis diam et auctor. Nam efficitur erat a ante convallis ornare. Donec sit amet felis et lacus finibus fringilla aliquet ac nunc. Sed cursus sed sapien sed convallis. Proin venenatis sem magna, quis ultricies tellus tincidunt eu. Duis faucibus nulla velit, ac pellentesque orci elementum at. Aliquam efficitur turpis sed est mollis interdum. Phasellus augue dui, rhoncus vel felis eget, blandit vestibulum quam. Sed eleifend fermentum fringilla. M
+                    </pre>          
+                </div>
+            </div>
+            <div class="container-fluid mt-5">
+                <div class="d-flex">
+                    <h2>My Notes</h2>
+                    <!-- Buttons for editing and deleting -->
+                    <div class="ms-5">
+                        <a href="/editeverything">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pencil-square icons" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                        </svg>
+                        </a>
+                        <a href="/deletewholeentry">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash icons" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <pre>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sollicitudin dapibus diam, ut auctor mi gravida id. Morbi quam felis, congue tincidunt nisl gravida, cursus ultrices nunc. Aenean ligula odio, convallis id molestie id, elementum sit amet tellus. Vivamus rutrum convallis ipsum, vel sagittis lorem viverra ut. Quisque non placerat turpis, nec rhoncus mi. Sed in augue sollicitudin neque euismod porttitor. Morbi blandit lectus a libero auctor, ac maximus nulla aliquet. Aenean venenatis, sapien dictum maximus fermentum, lacus velit consectetur urna, et scelerisque sapien elit id tortor.
+
+    Morbi et luctus ipsum. Donec nec pretium quam, commodo rhoncus dolor. Etiam pretium laoreet varius. Etiam porttitor dolor eu malesuada finibus. Aenean non dui urna. Quisque velit lacus, euismod ac ex eget, aliquet condimentum odio. Quisque id magna in eros pulvinar feugiat ac eget turpis. Cras suscipit, metus et mattis auctor, nulla ipsum lacinia tellus, a aliquam augue enim eu ex. Vivamus id mi nec est volutpat semper. Donec orci ligula, blandit eu velit et, aliquam rutrum metus.
+                
+    In scelerisque quam et quam imperdiet dignissim. Phasellus condimentum lectus id rutrum dictum. In ipsum nibh, egestas a volutpat eu, porttitor id nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis pellentesque malesuada nulla eu volutpat. Fusce rhoncus diam tincidunt sollicitudin sagittis. Sed blandit finibus eros, vel laoreet leo.
+                
+    Ut convallis sem vitae pharetra blandit. Maecenas congue consectetur nisi, facilisis egestas enim. Proin ac purus nec massa placerat dictum a interdum est. Fusce consectetur venenatis nulla, in condimentum purus consectetur sed. Mauris felis urna, semper pharetra auctor sit amet, egestas ut ex. Sed condimentum, dolor sed dictum gravida, odio dolor sodales odio, eu lobortis leo nisl at ligula. Mauris ultricies suscipit pellentesque. Duis pellentesque mauris in lobortis varius. Maecenas placerat dolor id nulla dignissim, id congue sem mattis.
+                
+    In in lobortis enim, nec gravida metus. Ut arcu odio, semper eget laoreet vel, iaculis id magna. Duis ultricies enim at est consectetur, non tincidunt risus ornare. Cras risus massa, ornare ac ligula id, facilisis imperdiet arcu. Vestibulum ultrices odio efficitur, sodales enim at, lobortis lectus. Etiam non pellentesque dui, quis pharetra velit. Aenean vel orci eu odio mollis egestas. Aenean sem tortor, fringilla porttitor tortor nec, porta sodales enim.
+                
+    Nunc libero sapien, laoreet sit amet diam sit amet, blandit dapibus orci. Nunc facilisis ut quam vel malesuada. Nulla dolor urna, interdum nec lorem sed, malesuada dignissim metus. Etiam sed sem tortor. Maecenas eget nibh massa. Phasellus ornare pulvinar eros eget posuere. Donec hendrerit dolor a aliquam hendrerit. Nullam orci magna, scelerisque id elit vitae, semper tempus tellus. Pellentesque lorem eros, venenatis sed rutrum et, tincidunt sit amet mauris. Integer commodo purus orci, a viverra dui aliquam eu. Nunc tincidunt, erat at lacinia iaculis, ipsum dui porttitor ante, non tempor leo dolor sed eros. In eu tempus ex. Suspendisse congue dictum neque eget viverra. Proin ultrices diam et rhoncus vehicula. Donec convallis laoreet consectetur. Fusce sodales, enim sit amet efficitur ornare, nunc dui auctor leo, non pretium sapien dolor nec felis.
+                
+    Morbi gravida eleifend porttitor. Donec non risus risus. Nunc sapien arcu, ornare id iaculis non, tincidunt vitae urna. Curabitur vehicula, est ut sollicitudin auctor, ipsum massa fermentum dui, venenatis dignissim enim eros in libero. Vestibulum quis dui ex. Etiam pulvinar, nisi a posuere ultricies, urna quam convallis sapien, at aliquet justo ante non sem. Duis pharetra lacus vel lorem placerat dictum.
+                
+    Morbi tincidunt velit sem, a dictum ex venenatis a. In elementum gravida metus in dictum. Phasellus pharetra consectetur orci, in efficitur lorem placerat sit amet. Nam pretium odio sed dui suscipit, nec efficitur odio posuere. Ut dictum sollicitudin augue vulputate volutpat. Proin convallis risus eget est volutpat iaculis. Vestibulum dui lorem, efficitur eu dui vel, porttitor porta dolor. Quisque pellentesque lobortis tellus, a interdum purus congue quis. Vestibulum quis sem consequat, varius erat nec, malesuada elit.
+                
+    Maecenas id euismod lacus. Pellentesque pharetra nibh neque, non fermentum dui luctus ut. Fusce sodales non libero at euismod. Aliquam a convallis tortor. Fusce a ultricies tellus. Donec sed sem varius, ornare sem sed, porttitor lacus. Curabitur quis molestie metus.
+                
+    Duis pellentesque lectus sit amet justo euismod aliquam. Morbi rhoncus nibh tellus, congue iaculis nisi efficitur feugiat. Duis tempor dui et odio sodales eleifend. Praesent molestie mollis quam eget pretium. Curabitur vulputate lorem ut purus pellentesque, sed vestibulum nunc elementum. Curabitur erat augue, accumsan ac nulla id, hendrerit sollicitudin eros. Donec eget gravida nulla, eu malesuada odio. Maecenas sit amet tristique sapien. Cras eu iaculis sapien. Nam sed arcu nibh. Fusce sagittis metus in enim feugiat pharetra. Nulla nisi eros, blandit non dictum in, suscipit id massa. Vestibulum ut justo vitae nisl eleifend fermentum imperdiet ac nisi. Pellentesque mauris magna, cursus ut mi eu, pellentesque tincidunt mi.
+                </pre>
+            </div>
+        </div>
+    </div>    
+</body>
+<%- include("partials/footer.ejs") %>
