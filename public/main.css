@@ -45,3 +45,29 @@ input[type="text"], textarea[type="text"]{
     background-color: #EEEEEE;
     border: #EEEEEE;
 }
+ul{
+    list-style-type: none;
+    background-color: #EEEEEE;
+}
+.contrast-text{
+    color: #222831;
+}
+li:hover{
+    background-color: #76ABAE;
+    color: #EEEEEE;
+}
+.btn-primary{
+    background-color: #76ABAE;
+
+    --bs-btn-bg: #76ABAE !important;
+    --bs-btn-border-color: #76ABAE !important;
+    --bs-btn-hover-bg: #EEEEEE !important;
+    --bs-btn-hover-border-color: #EEEEEE !important;
+    --bs-btn-hover-color: #222831 !important;
+    --bs-btn-active-bg: #76ABAE !important;
+    --bs-btn-active-border-color: #76ABAE !important;
+    --bs-btn-disabled-bg: #76ABAE !important;
+    --bs-btn-disabled-border-color: #76ABAE !important;
+}
+
+

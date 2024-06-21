@@ -6,13 +6,47 @@
         </div>
         <hr>
         <div class="container py-5">
-            <form>
+            <form  method="post">
                 <div class="row mb-2">
-                    <div class="col-2 justi">
-                        <label for="">Book: </label>
+                    <div class="col-2">
+                        <label for="search">Book: </label>
                     </div>
-                    <div class="col-10">
-                        <input type="text" id="fname" name="" class="form-control">
+                    <div class="col-10" >
+                        <!-- invisible input tag to store the value of searched book -->
+                        <input type="hidden" name="title" id="title" value="0">
+                        <input type="hidden" name="author" id="author" value="0">
+                        <input type="hidden" name="book_id" id="book_id" value="0">
+                        <!-- the input tag to search books thru open library api -->
+                         <div class="container">
+                            <div class="row">
+                                <div class="col-10">
+                                    <input type="text" id="search" name="search" class="form-control" >
+                                </div>
+                                <div class="col-2 d-flex align-items-center">
+                                    <button type="submit" formaction="/search" class="btn rounded-pill btn-sm btn-primary">Search</button>     
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-10">
+                                    <!-- a dropdown list to show results from search. user can then click on a book then details will be stored in invisible input tags above. handled by js -->
+                                    <!-- add an loop statement here to populate the list with fetched books -->
+                                    <ul class="container-fluid p-0" <% if (locals.books.length == 0){%>hidden<% } %>>
+                                        <% books.forEach((book) => { %>
+                                        <li>
+                                            <div class="ps-5 m-0 pe-5 d-flex">
+                                                <img  src="https://covers.openlibrary.org/b/id/<%=book.coverID%>-S.jpg" style="object-fit: contain;">
+                                                <div class="ps-5 d-flex flex-column flex-wrap">
+                                                    <p class="contrast-text"><strong><%=book.title%></strong></p>
+                                                    <p class="contrast-text">by <em><%=book.authorName%></em></p>
+                                                </div>
+                                            </div>                                        
+                                        </li>
+                                        <% }) %>
+                                    </ul>  
+                                </div>
+                                <div class="col-2"> </div>
+                            </div>                  
+                         </div>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -20,7 +54,7 @@
                         <label for="rating">Rating: </label>
                     </div>
                     <div class="col-10">
-                        <!-- Hover color change is handled in star.js-->
+                        <!-- Hover color change is handled in stars.js-->
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                             <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                         </svg>
@@ -36,7 +70,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                             <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                         </svg>
-                        <!-- this is where i store the rating using js-->
+                        <!-- this is where i store the rating using stars.js-->
                         <input type="hidden" name="rating" id="rating" value="0">
                     </div>
                 </div>
