@@ -1,11 +1,24 @@
 <%- include("partials/header.ejs") %>
 <body>
     <div class="container mt-5 mb-5 d-flex flex-column main-div">
-        <div>
-            <h1>Book Notes</h1>
-            <p>Welcome to BookNotes where you can store the books you have read, your rating and notes for that book</p>
-            <p>Sort by: <a href="/sort/">Title</a> <a href="/sort/">Rating</a> <a href="/sort/">Newest</a></p>            
+        <div class="container-fluid p-5">
+            <div class="row ">
+                <div class="col-10">
+                    <h1>Book Notes</h1>
+                    <p>Welcome to BookNotes where you can store the books you have read, your rating and notes for that book</p>
+                    <p>Sort by: <a href="/sort/">Title</a> <a href="/sort/">Rating</a> <a href="/sort/">Newest</a></p>
+                </div>
+                <!-- Button for adding a new Entry -->
+                <div class="col-2 d-flex justify-content-center align-items-center"> 
+                    <a href="/add">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-plus-circle-fill add-icon" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                        </svg>
+                    </a>   
+                </div>   
+            </div>
         </div>
+
         <div class="container-fluid">
             <hr>
             <div class="row">

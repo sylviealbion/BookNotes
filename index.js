@@ -27,9 +27,16 @@ app.get("/view", async (req,res)=>{
     res.render("notes.ejs");
 });
 
+//go to add and entry page
+app.get("/add", async (req,res)=>{
+    res.render("addentry.ejs");
+});
+
+
 //add new data
-app.post("/", async (req,res)=>{
-    
+app.post("/entry", async (req,res)=>{
+    //insert into database
+    res.redirect("/");
 });
 
 //edit data

@@ -1,3 +1,4 @@
+::selection      { color: #EEEEEE;  background: #76ABAE; } 
 body{
     color: #EEEEEE;
     background-color: #222831;
@@ -23,4 +24,11 @@ pre{
 }
 .bi-trash:hover{
     color: #76ABAE;
+}
+
+.add-icon{
+    color: #76ABAE;
+}
+.bi-plus-circle-fill:hover{
+    color: #EEEEEE;
 }
