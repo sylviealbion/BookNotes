@@ -11,7 +11,7 @@ app.use(express.static("public"));
 const db = new pg.Client({
     user: "postgres",
     host: "localhost",
-    database: "",
+    database: "booknotes",
     password: "123456",
     port: 5432,
   });
@@ -20,7 +20,7 @@ const db = new pg.Client({
 
 //display all data
 app.get("/", async (req,res)=>{
-
+    res.render("index.ejs");
 });
 
 //add new data
@@ -36,4 +36,8 @@ app.post("/", async (req,res)=>{
 //delete data
 app.post("/", async (req,res)=>{
     
+});
+
+app.listen(port, ()=>{
+    console.log(`Server started at port: ${port}`);
 });
