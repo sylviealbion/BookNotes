@@ -32,11 +32,42 @@ const db = new pg.Client({
 
 //display all data
 app.get("/", async (req,res)=>{
-    res.render("index.ejs");
+    const books = [];
+    try {
+        const results = await db.query("SELECT id, title, author, rating, review, date_read, cover_id FROM books");        
+        results.rows.forEach((result)=>{
+            books.push(result);
+        });
+        res.render("index.ejs", {books: books});
+    } catch (error) {
+        console.log(error);
+        res.render("index.ejs", {books: books});
+    }
+   
 });
-//chage view to /view/:id
-app.get("/view", async (req,res)=>{
-    res.render("notes.ejs");
+//view all book notes and other data
+app.get("/view/:id", async (req,res)=>{
+    const id = req.params.id;
+    let book = {};
+    try {
+        const results = await db.query("SELECT * FROM books WHERE id = $1", 
+            [id]);
+        book = {
+            id: results.rows[0].id,
+            title: results.rows[0].title,
+            author: results.rows[0].author,
+            rating: results.rows[0].rating,
+            review: results.rows[0].review,
+            notes: results.rows[0].notes,
+            date: results.rows[0].date_read,
+            cover: results.rows[0].cover_id,
+        };
+        console.log(book);       
+        res.render("notes.ejs", {book});
+    } catch (error) {
+        console.log(error);
+        res.render("notes.ejs", {book});
+    }   
 });
 
 //go to add and entry page

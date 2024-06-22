@@ -4,22 +4,19 @@
         <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col-4">
-                    <img src="https://covers.openlibrary.org/b/isbn/0806541229-L.jpg" class="rounded book-cover">
+                    <img src="https://covers.openlibrary.org/b/id/<%= book.cover%>-L.jpg" class="rounded book-cover">
                 </div>
                 <div class="col-8">
-                    <h2>TITLE OF BOOk adasdasdasdasdasddasdasdasdad</h2>
-                    <p>by <em>authorsdasdasdasd</em></p>
-                    <p>Date read | 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill selected" viewBox="0 0 16 16">
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg> 
-                    </p>
-                    
-                    <pre>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque egestas, magna rhoncus imperdiet facilisis, orci augue pretium quam, pharetra tempus ipsum ante in sem. Sed a volutpat est. Aenean eros nibh, sodales sed leo vel, ultrices gravida lectus. Praesent luctus diam a iaculis suscipit. Nullam vulputate quis lectus ac egestas. Phasellus placerat aliquet nunc, eu facilisis est facilisis et. Etiam erat orci, eleifend a egestas quis, molestie vel enim. Cras eget purus placerat, cursus lorem et, euismod mauris. Praesent sit amet nisl dignissim, ornare metus ac, egestas nisl.
-
-        Maecenas fringilla purus vitae gravida scelerisque. Praesent elementum facilisis diam et auctor. Nam efficitur erat a ante convallis ornare. Donec sit amet felis et lacus finibus fringilla aliquet ac nunc. Sed cursus sed sapien sed convallis. Proin venenatis sem magna, quis ultricies tellus tincidunt eu. Duis faucibus nulla velit, ac pellentesque orci elementum at. Aliquam efficitur turpis sed est mollis interdum. Phasellus augue dui, rhoncus vel felis eget, blandit vestibulum quam. Sed eleifend fermentum fringilla. M
-                    </pre> 
+                    <h2><%= book.title %></h2>
+                    <p>by <em><%= book.author %></em></p>
+                    <p><%= book.date.toISOString().split('T')[0] %> | 
+                        <% for( let index = 0; index < book.rating; index++ ) { %>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill selected" viewBox="0 0 16 16">
+                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg> 
+                        <% } %>
+                    </p>                        
+                    <pre><%= book.review %></pre> 
                     <a href="/">View all books ive read</a>        
                 </div>
             </div>
@@ -43,27 +40,7 @@
                     </div>
                 </div>
                 
-                <pre>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sollicitudin dapibus diam, ut auctor mi gravida id. Morbi quam felis, congue tincidunt nisl gravida, cursus ultrices nunc. Aenean ligula odio, convallis id molestie id, elementum sit amet tellus. Vivamus rutrum convallis ipsum, vel sagittis lorem viverra ut. Quisque non placerat turpis, nec rhoncus mi. Sed in augue sollicitudin neque euismod porttitor. Morbi blandit lectus a libero auctor, ac maximus nulla aliquet. Aenean venenatis, sapien dictum maximus fermentum, lacus velit consectetur urna, et scelerisque sapien elit id tortor.
-
-    Morbi et luctus ipsum. Donec nec pretium quam, commodo rhoncus dolor. Etiam pretium laoreet varius. Etiam porttitor dolor eu malesuada finibus. Aenean non dui urna. Quisque velit lacus, euismod ac ex eget, aliquet condimentum odio. Quisque id magna in eros pulvinar feugiat ac eget turpis. Cras suscipit, metus et mattis auctor, nulla ipsum lacinia tellus, a aliquam augue enim eu ex. Vivamus id mi nec est volutpat semper. Donec orci ligula, blandit eu velit et, aliquam rutrum metus.
-                
-    In scelerisque quam et quam imperdiet dignissim. Phasellus condimentum lectus id rutrum dictum. In ipsum nibh, egestas a volutpat eu, porttitor id nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis pellentesque malesuada nulla eu volutpat. Fusce rhoncus diam tincidunt sollicitudin sagittis. Sed blandit finibus eros, vel laoreet leo.
-                
-    Ut convallis sem vitae pharetra blandit. Maecenas congue consectetur nisi, facilisis egestas enim. Proin ac purus nec massa placerat dictum a interdum est. Fusce consectetur venenatis nulla, in condimentum purus consectetur sed. Mauris felis urna, semper pharetra auctor sit amet, egestas ut ex. Sed condimentum, dolor sed dictum gravida, odio dolor sodales odio, eu lobortis leo nisl at ligula. Mauris ultricies suscipit pellentesque. Duis pellentesque mauris in lobortis varius. Maecenas placerat dolor id nulla dignissim, id congue sem mattis.
-                
-    In in lobortis enim, nec gravida metus. Ut arcu odio, semper eget laoreet vel, iaculis id magna. Duis ultricies enim at est consectetur, non tincidunt risus ornare. Cras risus massa, ornare ac ligula id, facilisis imperdiet arcu. Vestibulum ultrices odio efficitur, sodales enim at, lobortis lectus. Etiam non pellentesque dui, quis pharetra velit. Aenean vel orci eu odio mollis egestas. Aenean sem tortor, fringilla porttitor tortor nec, porta sodales enim.
-                
-    Nunc libero sapien, laoreet sit amet diam sit amet, blandit dapibus orci. Nunc facilisis ut quam vel malesuada. Nulla dolor urna, interdum nec lorem sed, malesuada dignissim metus. Etiam sed sem tortor. Maecenas eget nibh massa. Phasellus ornare pulvinar eros eget posuere. Donec hendrerit dolor a aliquam hendrerit. Nullam orci magna, scelerisque id elit vitae, semper tempus tellus. Pellentesque lorem eros, venenatis sed rutrum et, tincidunt sit amet mauris. Integer commodo purus orci, a viverra dui aliquam eu. Nunc tincidunt, erat at lacinia iaculis, ipsum dui porttitor ante, non tempor leo dolor sed eros. In eu tempus ex. Suspendisse congue dictum neque eget viverra. Proin ultrices diam et rhoncus vehicula. Donec convallis laoreet consectetur. Fusce sodales, enim sit amet efficitur ornare, nunc dui auctor leo, non pretium sapien dolor nec felis.
-                
-    Morbi gravida eleifend porttitor. Donec non risus risus. Nunc sapien arcu, ornare id iaculis non, tincidunt vitae urna. Curabitur vehicula, est ut sollicitudin auctor, ipsum massa fermentum dui, venenatis dignissim enim eros in libero. Vestibulum quis dui ex. Etiam pulvinar, nisi a posuere ultricies, urna quam convallis sapien, at aliquet justo ante non sem. Duis pharetra lacus vel lorem placerat dictum.
-                
-    Morbi tincidunt velit sem, a dictum ex venenatis a. In elementum gravida metus in dictum. Phasellus pharetra consectetur orci, in efficitur lorem placerat sit amet. Nam pretium odio sed dui suscipit, nec efficitur odio posuere. Ut dictum sollicitudin augue vulputate volutpat. Proin convallis risus eget est volutpat iaculis. Vestibulum dui lorem, efficitur eu dui vel, porttitor porta dolor. Quisque pellentesque lobortis tellus, a interdum purus congue quis. Vestibulum quis sem consequat, varius erat nec, malesuada elit.
-                
-    Maecenas id euismod lacus. Pellentesque pharetra nibh neque, non fermentum dui luctus ut. Fusce sodales non libero at euismod. Aliquam a convallis tortor. Fusce a ultricies tellus. Donec sed sem varius, ornare sem sed, porttitor lacus. Curabitur quis molestie metus.
-                
-    Duis pellentesque lectus sit amet justo euismod aliquam. Morbi rhoncus nibh tellus, congue iaculis nisi efficitur feugiat. Duis tempor dui et odio sodales eleifend. Praesent molestie mollis quam eget pretium. Curabitur vulputate lorem ut purus pellentesque, sed vestibulum nunc elementum. Curabitur erat augue, accumsan ac nulla id, hendrerit sollicitudin eros. Donec eget gravida nulla, eu malesuada odio. Maecenas sit amet tristique sapien. Cras eu iaculis sapien. Nam sed arcu nibh. Fusce sagittis metus in enim feugiat pharetra. Nulla nisi eros, blandit non dictum in, suscipit id massa. Vestibulum ut justo vitae nisl eleifend fermentum imperdiet ac nisi. Pellentesque mauris magna, cursus ut mi eu, pellentesque tincidunt mi.
-                </pre>
+                <pre><%= book.notes %></pre>
             </div>
         </div>
     </div>    
