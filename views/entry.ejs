@@ -7,15 +7,16 @@
         <hr>
         <div class="container py-5">
             <form  method="post">
+                <!-- Search book Div -->
                 <div class="row mb-2">
                     <div class="col-2">
-                        <label for="search">Book: </label>
+                        <label for="search">Search Book: </label>
                     </div>
                     <div class="col-10" >
                         <!-- invisible input tag to store the value of searched book -->
                         <input type="hidden" name="title" id="title" value="0">
                         <input type="hidden" name="author" id="author" value="0">
-                        <input type="hidden" name="book_id" id="book_id" value="0">
+                        <input type="hidden" name="cover_id" id="cover_id" value="0">
                         <!-- the input tag to search books thru open library api -->
                          <div class="container">
                             <div class="row">
@@ -28,16 +29,15 @@
                             </div> 
                             <div class="row">
                                 <div class="col-10">
-                                    <!-- a dropdown list to show results from search. user can then click on a book then details will be stored in invisible input tags above. handled by js -->
-                                    <!-- add an loop statement here to populate the list with fetched books -->
-                                    <ul class="container-fluid p-0" <% if (locals.books.length == 0){%>hidden<% } %>>
+                                    <!-- a dropdown list to show results from search. user can then click on a book then details will be stored in invisible input tags above. handled by dropdown.js -->
+                                    <ul id="dropdown" class="container-fluid p-0" <% if (locals.books.length == 0){%>hidden<% } %>>
                                         <% books.forEach((book) => { %>
-                                        <li>
+                                        <li class="book_item">
                                             <div class="ps-5 m-0 pe-5 d-flex">
-                                                <img  src="https://covers.openlibrary.org/b/id/<%=book.coverID%>-S.jpg" style="object-fit: contain;">
+                                                <img  class="cover_image" id="<%=book.coverID%>" src="https://covers.openlibrary.org/b/id/<%=book.coverID%>-S.jpg" style="object-fit: contain;">
                                                 <div class="ps-5 d-flex flex-column flex-wrap">
-                                                    <p class="contrast-text"><strong><%=book.title%></strong></p>
-                                                    <p class="contrast-text">by <em><%=book.authorName%></em></p>
+                                                    <p class="contrast-text"><strong class="book_title"><%=book.title%></strong></p>
+                                                    <p class="contrast-text">by <em class="book_author"><%=book.authorName%></em></p>
                                                 </div>
                                             </div>                                        
                                         </li>
@@ -45,12 +45,25 @@
                                     </ul>  
                                 </div>
                                 <div class="col-2"> </div>
+                            </div>
+                            <!-- Div for book details. show when user selected a book handled in dropdown.js -->
+                            <div id="selected_book" class="row mb-2" hidden>
+                                <div class="col-6 d-flex justify-content-center align-items-center">
+                                    <img id="selected_book_image" class="rounded book-cover" style="object-fit: contain;">
+                                </div>
+                                <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                                    <h2 id="selected_book_title"></h2>
+                                    <p>by: <em id="selected_book_author"></em></p>
+                                </div>
                             </div>                  
                          </div>
                     </div>
                 </div>
+
+
+                <!-- Rating div -->
                 <div class="row mb-2">
-                    <div class="col-2 justi">
+                    <div class="col-2">
                         <label for="rating">Rating: </label>
                     </div>
                     <div class="col-10">
@@ -74,16 +87,18 @@
                         <input type="hidden" name="rating" id="rating" value="0">
                     </div>
                 </div>
+                <!-- Review div -->
                 <div class="row mb-2">
-                    <div class="col-2 justi">
+                    <div class="col-2">
                         <label for="review">Review: </label>
                     </div>
                     <div class="col-10">
                         <textarea type="text" id="review" name="review" class="form-control" rows="10"></textarea>
                     </div>
                 </div> 
+                <!-- Notes Div -->
                 <div class="row mb-2">
-                    <div class="col-2 justi">
+                    <div class="col-2">
                         <label for="notes">Notes: </label>
                     </div>
                     <div class="col-10">
@@ -97,5 +112,6 @@
 
     </div>
     <script src="stars.js"></script>
+    <script src="dropdown.js"></script>
 </body>
 <%- include("partials/footer.ejs") %>
