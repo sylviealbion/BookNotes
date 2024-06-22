@@ -50,8 +50,7 @@ app.get("/view/:id", async (req,res)=>{
     const id = req.params.id;
     let book = {};
     try {
-        const results = await db.query("SELECT * FROM books WHERE id = $1", 
-            [id]);
+        const results = await db.query("SELECT * FROM books WHERE id = $1", [id]);
         book = {
             id: results.rows[0].id,
             title: results.rows[0].title,
@@ -61,8 +60,7 @@ app.get("/view/:id", async (req,res)=>{
             notes: results.rows[0].notes,
             date: results.rows[0].date_read,
             cover: results.rows[0].cover_id,
-        };
-        console.log(book);       
+        };     
         res.render("notes.ejs", {book});
     } catch (error) {
         console.log(error);
@@ -76,6 +74,7 @@ app.get("/add", async (req,res)=>{
     res.render("entry.ejs",{books: booksArray});
 });
 
+//search for book to review and add notes to
 app.post("/search", async (req,res)=>{
     booksArray=[];
     try {       
@@ -104,7 +103,7 @@ app.post("/search", async (req,res)=>{
     }    
 });
 
-//add new data
+//add new book notes entry
 app.post("/entry", async (req,res)=>{
     //insert into database
     const date = new Date(); //date.toLocaleString("default",{month: "long"}) + " " + date.getDate() + ", " + date.getFullYear()
@@ -127,13 +126,15 @@ app.post("/entry", async (req,res)=>{
 });
 
 //edit data
-app.patch("/", async (req,res)=>{
-    
+app.post("/edit", async (req,res)=>{
+    console.log("clicked edit");
+    res.redirect("/");
 });
 
 //delete data
-app.delete("/", async (req,res)=>{
-    
+app.post("/delete", async (req,res)=>{
+    console.log("clicked delete");
+    res.redirect("/");
 });
 
 app.listen(port, ()=>{

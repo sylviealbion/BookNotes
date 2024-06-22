@@ -71,3 +71,11 @@ li:hover{
 }
 
 
+.svg-btn{
+    appearance: none;
+    background: none;
+    padding: 0;
+    border: none;
+    color: #000;
+    cursor: pointer;
+}
