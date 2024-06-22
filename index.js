@@ -76,7 +76,23 @@ app.post("/search", async (req,res)=>{
 //add new data
 app.post("/entry", async (req,res)=>{
     //insert into database
-    res.redirect("/");
+    const date = new Date(); //date.toLocaleString("default",{month: "long"}) + " " + date.getDate() + ", " + date.getFullYear()
+    const title = req.body.title;
+    const author = req.body.author;
+    const coverID = req.body.cover_id;
+    const rating = req.body.rating;
+    const review = req.body.review;    
+    const notes = req.body.notes;
+    
+    try {
+        await db.query("INSERT INTO books (title, author, rating, review, date_read, notes, cover_id) VALUES ($1,$2, $3, $4, $5, $6, $7)",
+        [title, author, rating, review, date.toISOString().split('T')[0], notes, coverID]);    
+        res.redirect("/");
+    } catch (error) {
+        console.log(error);
+        res.redirect("/");
+    }
+
 });
 
 //edit data
