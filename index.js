@@ -11,6 +11,8 @@ app.use(express.static("public"));
 
 let booksArray=[];
 let bookNotes={};
+let sortBy = "title";
+let order = "ASC"
 
 function Book(coverID, title, authorName, key, authorKey){
     this.coverID = coverID;
@@ -35,7 +37,7 @@ const db = new pg.Client({
 app.get("/", async (req,res)=>{
     const books = [];
     try {
-        const results = await db.query("SELECT id, title, author, rating, review, date_read, cover_id FROM books");        
+        const results = await db.query(`SELECT id, title, author, rating, review, date_read, cover_id FROM books ORDER BY ${sortBy} ${order}`);        
         results.rows.forEach((result)=>{
             books.push(result);
         });
@@ -46,6 +48,21 @@ app.get("/", async (req,res)=>{
     }
    
 });
+
+//sort by either title, rating or newest
+app.get("/sort/:type",(req,res)=>{
+    const type = req.params.type;
+    sortBy = type;
+    res.redirect("/");
+});
+
+//order by ascending or descending
+app.get("/order/:type", (req,res)=>{
+    const type = req.params.type;
+    order = type;
+    res.redirect("/");
+});
+
 //view all book notes and other data
 app.get("/view/:id", async (req,res)=>{
     const id = req.params.id;
@@ -129,7 +146,6 @@ app.post("/edit/:id", async (req,res)=>{
     bookNotes = {};
     booksArray=[];
     const id=  req.params.id;
-    // let notes = {};
     try {
         const results = await db.query("SELECT * FROM books WHERE id = $1",[id]);
         bookNotes = {
@@ -142,7 +158,6 @@ app.post("/edit/:id", async (req,res)=>{
             date: results.rows[0].date_read,
             cover: results.rows[0].cover_id
         };
-        // bookNotes.push(notes);
         res.render("entry.ejs",{books: booksArray, notes: bookNotes});
     } catch (error) {
         console.log(error);

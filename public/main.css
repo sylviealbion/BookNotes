@@ -12,6 +12,7 @@ body{
 }
 a{
     color: #76ABAE;
+    text-decoration: none !important;
 }
 pre{
     white-space: pre-wrap;
@@ -76,6 +77,5 @@ li:hover{
     background: none;
     padding: 0;
     border: none;
-    color: #000;
     cursor: pointer;
 }
