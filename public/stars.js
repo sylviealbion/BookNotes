@@ -2,6 +2,12 @@ const stars = document.querySelectorAll(".bi-star-fill");
 let rating = document.getElementById("rating");
 
 stars.forEach((star, index1)=>{
+    console.log(index1);
+    if((index1+1)<=rating.value){
+        
+        star.classList.add("selected");
+    }
+
     //add event listener to the stars so that when mouse hovers at star, it will change color along with the stars to its left
     star.addEventListener("mouseenter",()=>{
         stars.forEach((star, index2)=>{

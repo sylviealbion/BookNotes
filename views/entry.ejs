@@ -2,7 +2,7 @@
 <body>
     <div class="container mt-5 mb-5 d-flex flex-column main-div">
         <div class="pt-5 pb-5">
-            <h1 style="text-align: center;">ADD ENTRY</h1>
+            <h1 style="text-align: center;"><%if (Object.keys(notes)<=0){%>ADD ENTRY<%}else{%>EDIT ENTRY<% } %></h1>
         </div>
         <hr>
         <div class="container py-5">
@@ -14,10 +14,10 @@
                     </div>
                     <div class="col-10" >
                         <!-- invisible input tag to store the value of searched book -->
-                        <input type="hidden" name="book_id", id="book_id" value="0">
-                        <input type="hidden" name="title" id="title" value="0">
-                        <input type="hidden" name="author" id="author" value="0">
-                        <input type="hidden" name="cover_id" id="cover_id" value="0">
+                        <input type="hidden" name="book_id", id="book_id" value="<%if (!locals.notes){%>0<% }else{ %> <%=notes.id %> <% } %>">
+                        <input type="hidden" name="title" id="title" value="<%if (!locals.notes){%>0<% }else{ %> <%=notes.title %> <% } %>">
+                        <input type="hidden" name="author" id="author" value="<%if (!locals.notes){%>0<% }else{ %> <%=notes.author %> <% } %>">
+                        <input type="hidden" name="cover_id" id="cover_id" value="<%if (!locals.notes){%>0<% }else{ %> <%=notes.cover %> <% } %>">
                         <!-- the input tag to search books thru open library api -->
                          <div class="container">
                             <div class="row">
@@ -48,13 +48,13 @@
                                 <div class="col-2"> </div>
                             </div>
                             <!-- Div for book details. show when user selected a book handled in dropdown.js -->
-                            <div id="selected_book" class="row mb-2" hidden>
+                            <div id="selected_book" class="row mb-2 mt-2" <%if(Object.keys(notes)<=0){%>hidden<%} %>>
                                 <div class="col-6 d-flex justify-content-center align-items-center">
-                                    <img id="selected_book_image" class="rounded book-cover" style="object-fit: contain;">
+                                    <img id="selected_book_image" <%if(locals.notes){%>src="https://covers.openlibrary.org/b/id/<%=notes.cover%>-M.jpg" <%}%>class="rounded book-cover" style="object-fit: contain;">
                                 </div>
                                 <div class="col-6 d-flex flex-column justify-content-center align-items-center">
-                                    <h2 id="selected_book_title"></h2>
-                                    <p>by: <em id="selected_book_author"></em></p>
+                                    <h2 id="selected_book_title"><%if(locals.notes){%><%= notes.title %><%} %></h2>
+                                    <p>by: <em id="selected_book_author"><%if(locals.notes){%><%= notes.author %><%} %></em></p>
                                 </div>
                             </div>                  
                          </div>
@@ -67,25 +67,25 @@
                     <div class="col-2">
                         <label for="rating">Rating: </label>
                     </div>
-                    <div class="col-10">
-                        <!-- Hover color change is handled in stars.js-->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                        </svg>
+                    <div class="col-10">    
                         <!-- this is where i store the rating using stars.js-->
-                        <input type="hidden" name="rating" id="rating" value="0">
+                    <input type="hidden" name="rating" id="rating" value="<%if(locals.notes){%><%= notes.rating %><%}else{%>0<% } %>">
+                        <!-- Hover color change is handled in stars.js-->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill " viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill " viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill " viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill " viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star-fill " viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
                     </div>
                 </div>
                 <!-- Review div -->
@@ -94,7 +94,7 @@
                         <label for="review">Review: </label>
                     </div>
                     <div class="col-10">
-                        <textarea type="text" id="review" name="review" class="form-control" rows="10"></textarea>
+                        <textarea type="text" id="review" name="review" class="form-control" rows="10"><%if(notes){%><%= notes.review %><%} %></textarea>
                     </div>
                 </div> 
                 <!-- Notes Div -->
@@ -103,13 +103,18 @@
                         <label for="notes">Notes: </label>
                     </div>
                     <div class="col-10">
-                        <textarea type="text" id="notes" name="notes" class="form-control" rows="20"></textarea>
+                        <textarea type="text" id="notes" name="notes" class="form-control" rows="20"><%if(notes){%><%= notes.notes %><%} %></textarea>
                     </div>
                 </div>
                 
                 <div class="row pt-2">
                     <div class="col-12 d-flex justify-content-center">
-                        <button type="submit" formaction="/entry" class="btn rounded-pill btn-primary">Submit</button>  
+                        <% if (Object.keys(notes)<=0) { %>
+                         <button type="submit" formaction="/entry" class="btn rounded-pill btn-primary">Submit</button>
+                        <% }else{ %>
+                        <button type="submit" formaction="/update" class="btn rounded-pill btn-primary">Submit</button>
+                        <% } %>
+                          
                     </div>
                 </div>
                 
@@ -119,7 +124,7 @@
         </div>   
 
     </div>
-    <script src="stars.js"></script>
-    <script src="dropdown.js"></script>
+    <script src="/stars.js"></script>
+    <script src="/dropdown.js"></script>
 </body>
 <%- include("partials/footer.ejs") %>
