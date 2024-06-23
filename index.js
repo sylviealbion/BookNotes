@@ -104,8 +104,6 @@ app.post("/search", async (req,res)=>{
 
 //add new book notes entry
 app.post("/entry", async (req,res)=>{
-    console.log("click on entry");
-    //insert into database
     const date = new Date(); 
     const date_today = date.toLocaleString("default",{month: "long"}) + " " + date.getDate() + ", " + date.getFullYear()
     const title = req.body.title;
@@ -173,9 +171,16 @@ app.post("/update", async (req,res)=>{
 });
 
 //delete data
-app.post("/delete", async (req,res)=>{
-    console.log("clicked delete");
-    res.redirect("/");
+app.post("/delete/:id", async (req,res)=>{
+    const id = req.params.id;
+    try {
+        await db.query("DELETE FROM books WHERE id = $1",[id]);
+        res.redirect("/");
+    } catch (error) {
+        console.log(error);
+        res.redirect("/"); 
+    }
+    
 });
 
 app.listen(port, ()=>{
