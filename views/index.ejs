@@ -34,10 +34,10 @@
             <% locals.books.forEach((book) => { %>
                 <hr>
                 <div class="row mt-3 mb-3">
-                <div class="col-4">
+                <div class="col-xxl-4 col-md-12 d-flex justify-content-center align-items-center">
                     <img src="https://covers.openlibrary.org/b/id/<%= book.cover_id%>-L.jpg" class="rounded book-cover">
                 </div>
-                <div class="col-8">
+                <div class="col-xxl-8 col-md-12">
                     <h2><%= book.title  %></h2>
                     <p>by <em><%= book.author %></em></p>
                     <p><%= book.date_read%> | 
